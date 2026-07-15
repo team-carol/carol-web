@@ -315,13 +315,15 @@ export const dictionary: Record<Lang, Dictionary> = {
   },
 };
 
-// Placeholder patch notes — replace with real tweet content.
+// A patch-note entry. Sourced from Notion at request time (see lib/tweets.ts);
+// the array below is the offline fallback used when Notion isn't configured.
 export interface Tweet {
   date: string;
   text: string;
+  image?: string;
 }
 
-export const tweets: Tweet[] = [
+export const fallbackTweets: Tweet[] = [
   {
     date: "2026.07.02",
     text: "[업데이트] /운세 명령어가 추가되었습니다. 매일 나만의 ‘오늘의 곡’(14+ ~ 15)을 확인해 보세요.",

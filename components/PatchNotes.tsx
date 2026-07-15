@@ -3,9 +3,9 @@
 import { useLanguage } from "./LanguageProvider";
 import { secondaryCta } from "./cta";
 import { site } from "@/lib/config";
-import { tweets } from "@/lib/dictionary";
+import type { Tweet } from "@/lib/tweets";
 
-export function PatchNotes() {
+export function PatchNotes({ tweets }: { tweets: Tweet[] }) {
   const { t } = useLanguage();
 
   return (
@@ -20,9 +20,9 @@ export function PatchNotes() {
         {t.patchSub}
       </p>
       <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(270px,1fr))]">
-        {tweets.map((tw) => (
+        {tweets.map((tw, i) => (
           <article
-            key={tw.date}
+            key={`${tw.date}-${i}`}
             className="flex flex-col gap-[14px] rounded-2xl border border-border-soft bg-surface p-6"
           >
             <div className="flex items-center gap-[10px]">
@@ -34,9 +34,18 @@ export function PatchNotes() {
               <span className="text-sm font-bold">캐롤봇</span>
               <span className="text-[13px] text-dim">{site.twitterHandle}</span>
             </div>
-            <p className="m-0 flex-1 text-[15px] leading-[1.6] text-ink-soft">
+            <p className="m-0 flex-1 whitespace-pre-line text-[15px] leading-[1.6] text-ink-soft">
               {tw.text}
             </p>
+            {tw.image && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={tw.image}
+                alt=""
+                loading="lazy"
+                className="max-h-[220px] w-full rounded-xl border border-border-soft object-cover"
+              />
+            )}
             <p className="m-0 text-[13px] text-dim">{tw.date} · X</p>
           </article>
         ))}
