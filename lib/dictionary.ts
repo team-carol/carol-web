@@ -321,6 +321,7 @@ export interface Tweet {
   date: string;
   text: string;
   images?: string[];
+  url?: string;
 }
 
 export const fallbackTweets: Tweet[] = [

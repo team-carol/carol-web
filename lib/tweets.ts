@@ -115,6 +115,7 @@ async function resolveTweet(
     text: cleanText(tweet.text),
     images: images?.length ? images : undefined,
     date: formatDate(created),
+    url,
     sortKey: created.getTime(),
   };
 }

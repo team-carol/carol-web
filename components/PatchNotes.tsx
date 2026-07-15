@@ -63,6 +63,48 @@ function TweetGallery({ images }: { images: string[] }) {
   );
 }
 
+// One patch-note card. Becomes a link to the source tweet when a URL is known.
+function TweetCard({ tweet }: { tweet: Tweet }) {
+  const cardClass =
+    "flex flex-col gap-[14px] rounded-2xl border border-border-soft bg-surface p-6 transition-colors";
+
+  const body = (
+    <>
+      <div className="flex items-center gap-[10px]">
+        <img
+          src="/carolbot-avatar.png"
+          alt=""
+          className="h-7 w-7 rounded-lg bg-white object-cover shadow-[0_0_0_1px_#33333a]"
+        />
+        <span className="text-sm font-bold text-ink">캐롤봇</span>
+        <span className="text-[13px] text-dim">{site.twitterHandle}</span>
+      </div>
+      <p className="m-0 flex-1 whitespace-pre-line text-[15px] leading-[1.6] text-ink-soft">
+        {tweet.text}
+      </p>
+      {tweet.images && tweet.images.length > 0 && (
+        <TweetGallery images={tweet.images} />
+      )}
+      <p className="m-0 text-[13px] text-dim">{tweet.date} · X</p>
+    </>
+  );
+
+  if (!tweet.url) {
+    return <article className={cardClass}>{body}</article>;
+  }
+
+  return (
+    <a
+      href={tweet.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${cardClass} !text-ink hover:!border-[#f2857f]`}
+    >
+      {body}
+    </a>
+  );
+}
+
 export function PatchNotes({ tweets }: { tweets: Tweet[] }) {
   const { t } = useLanguage();
 
@@ -79,27 +121,7 @@ export function PatchNotes({ tweets }: { tweets: Tweet[] }) {
       </p>
       <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(270px,1fr))]">
         {tweets.map((tw, i) => (
-          <article
-            key={`${tw.date}-${i}`}
-            className="flex flex-col gap-[14px] rounded-2xl border border-border-soft bg-surface p-6"
-          >
-            <div className="flex items-center gap-[10px]">
-              <img
-                src="/carolbot-avatar.png"
-                alt=""
-                className="h-7 w-7 rounded-lg bg-white object-cover shadow-[0_0_0_1px_#33333a]"
-              />
-              <span className="text-sm font-bold">캐롤봇</span>
-              <span className="text-[13px] text-dim">{site.twitterHandle}</span>
-            </div>
-            <p className="m-0 flex-1 whitespace-pre-line text-[15px] leading-[1.6] text-ink-soft">
-              {tw.text}
-            </p>
-            {tw.images && tw.images.length > 0 && (
-              <TweetGallery images={tw.images} />
-            )}
-            <p className="m-0 text-[13px] text-dim">{tw.date} · X</p>
-          </article>
+          <TweetCard key={`${tw.date}-${i}`} tweet={tw} />
         ))}
       </div>
       <div className="mt-8 flex justify-center">
