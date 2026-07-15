@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-canvas: #1a1a1c;
+  --color-canvas-alt: #211f24;
+  --color-surface: #242427;
+  --color-surface-2: #2e2e33;
+  --color-border-soft: #33333a;
+  --color-border-2: #3a353d;
+
+  --color-ink: #f2edef;
+  --color-ink-2: #e8dfe3;
+  --color-ink-soft: #cfc6ca;
+  --color-muted: #b3a8ad;
+  --color-dim: #8a8087;
+  --color-faint: #6f676c;
+
+  --color-accent: #ff9294;
+  --color-accent-hover: #f2787b;
+  --color-accent-ink: #3a1e1e;
+  --color-accent-soft: #f2b3bf;
+
+  --font-sans: "Pretendard", "Pretendard Variable", "Noto Sans JP",
+    -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--color-ink-soft);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-soft);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #3898ec;
+  outline-offset: 2px;
 }
