@@ -1,9 +1,9 @@
 "use client";
 
 import { useLanguage } from "./LanguageProvider";
-import { stats } from "@/lib/config";
+import type { SiteStats } from "@/lib/stats";
 
-export function Stats() {
+export function Stats({ stats }: { stats: SiteStats }) {
   const { t } = useLanguage();
 
   const items = [

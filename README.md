@@ -47,7 +47,15 @@ npm start        # 빌드 결과 실행
 - 트윗 조회에 쓰는 X syndication은 **비공식 API**라 막힐 수 있고, 실패 시 `lib/dictionary.ts`의 `fallbackTweets`로 자동 대체됩니다.
 - 환경변수 미설정 시에도 `fallbackTweets`로 정상 빌드/렌더됩니다.
 
+## 통계 (등록 사용자 / 서버 / 버전)
+
+`lib/stats.ts`가 캐롤봇 웹서버의 `GET /api/stats`를 ISR(10분)로 불러옵니다.
+
+- 환경변수 `STATS_URL`에 엔드포인트 주소를 넣으세요. (예: `https://maimai.bitworkspace.kr/api/stats`)
+- 기대 응답: `{ "userCount": 1024, "serverCount": 128, "version": "v2.4" }`
+- 미설정/실패 시 `lib/config.ts`의 정적 기본값으로 폴백합니다.
+- `userCount`/`serverCount`는 숫자/문자 모두 허용하며 천 단위 콤마로 포맷됩니다.
+
 ## 남은 작업 / 참고
 
-- **통계 값**: `lib/config.ts`의 `stats`는 정적 기본값입니다. 실데이터 연동 시 교체하세요.
 - **아바타**: `public/carolbot-avatar.png` (512px로 다운스케일). 원본은 `~/Desktop/그림/148.png`.
