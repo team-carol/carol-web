@@ -15,7 +15,7 @@ export function SiteFooter() {
         <div>
           <span className="flex items-center gap-[10px] text-xl font-medium text-ink">
             <img
-              src="/carolbot-avatar.svg"
+              src="/carolbot-avatar.png"
               alt=""
               className="h-[30px] w-[30px] rounded-full bg-white object-cover shadow-[0_0_0_1px_#33333a]"
             />

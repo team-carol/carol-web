@@ -36,7 +36,7 @@ export function Hero() {
 
       <div className="flex flex-col items-center gap-[22px] rounded-[32px] border border-border-soft bg-surface p-[clamp(28px,4vw,40px)]">
         <img
-          src="/carolbot-avatar.svg"
+          src="/carolbot-avatar.png"
           alt="캐롤봇 프로필 사진"
           className="aspect-square w-[min(180px,50vw)] rounded-[20px] bg-white object-contain shadow-[0_0_0_1px_#33333a]"
         />

@@ -27,7 +27,7 @@ export function PatchNotes() {
           >
             <div className="flex items-center gap-[10px]">
               <img
-                src="/carolbot-avatar.svg"
+                src="/carolbot-avatar.png"
                 alt=""
                 className="h-7 w-7 rounded-lg bg-white object-cover shadow-[0_0_0_1px_#33333a]"
               />

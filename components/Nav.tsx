@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "./LanguageProvider";
 import { primaryCta } from "./cta";
 import { site } from "@/lib/config";
@@ -20,6 +21,8 @@ const FLAG_LABEL: Record<Lang, string> = {
 
 export function Nav() {
   const { t, lang, setLang } = useLanguage();
+  const pathname = usePathname();
+  const onCommands = pathname === site.commandsHref;
 
   return (
     <nav className="sticky top-0 z-10 border-b border-border-soft bg-canvas/90 backdrop-blur-md">
@@ -29,7 +32,7 @@ export function Nav() {
           className="flex items-center gap-[10px] text-[17px] font-medium !text-ink hover:!text-ink"
         >
           <img
-            src="/carolbot-avatar.svg"
+            src="/carolbot-avatar.png"
             alt="캐롤봇"
             width={30}
             height={30}
@@ -42,7 +45,12 @@ export function Nav() {
 
         <Link
           href={site.commandsHref}
-          className="text-[15px] !text-muted hover:!text-ink"
+          aria-current={onCommands ? "page" : undefined}
+          className={
+            onCommands
+              ? "text-[15px] font-medium !text-accent-soft"
+              : "text-[15px] !text-muted hover:!text-ink"
+          }
         >
           {t.navCommands}
         </Link>

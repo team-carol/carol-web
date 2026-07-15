@@ -6,6 +6,24 @@ export interface Feature {
   copy: string;
 }
 
+export interface CommandItem {
+  cmd: string;
+  desc: string;
+}
+
+export interface CommandGroup {
+  name: string;
+  items: CommandItem[];
+}
+
+export interface CommandsPage {
+  title: string;
+  sub: string;
+  uiCopy: string;
+  back: string;
+  groups: CommandGroup[];
+}
+
 export interface Dictionary {
   navCommands: string;
   hero1: string;
@@ -33,6 +51,7 @@ export interface Dictionary {
   footSupport: string;
   footDisc1: string;
   footDisc2: string;
+  commands: CommandsPage;
 }
 
 export const dictionary: Record<Lang, Dictionary> = {
@@ -78,6 +97,44 @@ export const dictionary: Record<Lang, Dictionary> = {
       "캐롤봇에서 사용되는 보면 상수와 앨범 자켓 이미지는 OTOGE DB 서비스에서 수집합니다. OTOGE DB를 제작하신 X @zvuc_ 님께 감사의 말씀을 드립니다.",
     footDisc2:
       "캐롤봇은 기록 공유의 편의를 위해 제작한 maimai DX의 팬 프로젝트입니다. 캐롤봇에 사용된 콘텐츠의 저작권은 SEGA 및 각 소유자들에게 있습니다.",
+    commands: {
+      title: "슬래시 명령어",
+      sub: "캐롤봇이 제공하는 10개의 명령어입니다. 디스코드 채팅창에 / 를 입력해 사용하세요.",
+      uiCopy:
+        "디스코드의 '앱 추가'로 내 계정에 캐롤봇을 추가하면, 봇이 초대되지 않은 서버에서도 위 명령어를 그대로 사용할 수 있습니다.",
+      back: "홈으로 돌아가기",
+      groups: [
+        {
+          name: "시작하기",
+          items: [
+            { cmd: "/북마클릿", desc: "기록 연동에 필요한 북마클릿 등록 가이드 페이지로 이동합니다." },
+            { cmd: "/설정", desc: "개인 설정 페이지로 이동합니다." },
+          ],
+        },
+        {
+          name: "기록",
+          items: [
+            { cmd: "/프로필", desc: "자신의 maimai DX 프로필을 임베드로 표시합니다." },
+            { cmd: "/레이팅표", desc: "자신의 레이팅 대상곡을 이미지로 출력합니다." },
+            { cmd: "/성과", desc: "특정 날짜에 이룬 성과를 이미지로 출력합니다." },
+            { cmd: "/지방", desc: "자신의 지방별 진행도를 임베드로 표시합니다." },
+            { cmd: "/검색", desc: "입력한 조건에 맞는 곡을 검색합니다." },
+          ],
+        },
+        {
+          name: "선곡",
+          items: [
+            { cmd: "/곡추천", desc: "레이팅 대상곡을 바탕으로 임의의 곡 3개를 추천합니다." },
+            { cmd: "/랜덤", desc: "입력한 조건에 맞는 곡을 랜덤으로 선곡합니다." },
+            { cmd: "/운세", desc: "사용자마다 다른 '오늘의 곡'을 임베드로 표시합니다. (14+ ~ 15)" },
+          ],
+        },
+        {
+          name: "지원",
+          items: [{ cmd: "/문의", desc: "디스코드 팝업을 통해 버그를 제보할 수 있습니다." }],
+        },
+      ],
+    },
   },
   en: {
     navCommands: "Commands",
@@ -127,6 +184,50 @@ export const dictionary: Record<Lang, Dictionary> = {
       "Chart constants and jacket images used in Carolbot are sourced from the OTOGE DB service. Our thanks to X @zvuc_, the creator of OTOGE DB.",
     footDisc2:
       "Carolbot is a fan project built to make sharing maimai DX records easier. Copyright of the content used in Carolbot belongs to SEGA and the respective owners.",
+    commands: {
+      title: "Slash commands",
+      sub: "All 10 commands Carolbot provides. Type / in any Discord chat to use them.",
+      uiCopy:
+        "Add Carolbot to your own account with Discord’s “Add App” — then use every command above in any server, even ones the bot was never invited to.",
+      back: "Back to home",
+      groups: [
+        {
+          name: "Getting started",
+          items: [
+            {
+              cmd: "/북마클릿",
+              desc: "Opens the guide page for registering the record-sync bookmarklet.",
+            },
+            { cmd: "/설정", desc: "Opens your personal settings page." },
+          ],
+        },
+        {
+          name: "Records",
+          items: [
+            { cmd: "/프로필", desc: "Shows your maimai DX profile as an embed." },
+            { cmd: "/레이팅표", desc: "Renders your rating songs as an image." },
+            { cmd: "/성과", desc: "Outputs the achievements of a given date as an image." },
+            { cmd: "/지방", desc: "Shows your area progress as an embed." },
+            { cmd: "/검색", desc: "Searches for songs matching your conditions." },
+          ],
+        },
+        {
+          name: "Song picks",
+          items: [
+            { cmd: "/곡추천", desc: "Recommends 3 random songs based on your rating songs." },
+            { cmd: "/랜덤", desc: "Picks a random song matching your conditions." },
+            {
+              cmd: "/운세",
+              desc: "Shows your personal “song of the day” as an embed. (Lv 14+ ~ 15)",
+            },
+          ],
+        },
+        {
+          name: "Support",
+          items: [{ cmd: "/문의", desc: "Report bugs through a Discord popup." }],
+        },
+      ],
+    },
   },
   ja: {
     navCommands: "コマンド",
@@ -173,6 +274,44 @@ export const dictionary: Record<Lang, Dictionary> = {
       "Carolbotで使用される譜面定数やジャケット画像はOTOGE DBサービスから取得しています。OTOGE DBを制作されたX @zvuc_ 様に感謝申し上げます。",
     footDisc2:
       "Carolbotは記録共有の利便性のために制作したmaimai DXのファンプロジェクトです。Carolbotで使用されているコンテンツの著作権はSEGA及び各権利者に帰属します。",
+    commands: {
+      title: "スラッシュコマンド",
+      sub: "Carolbotが提供する11のコマンドです。Discordのチャットで / を入力して使えます。",
+      uiCopy:
+        "Discordの「アプリを追加」で自分のアカウントに追加すれば、Botのいないサーバーでも上のコマンドをそのまま使えます。",
+      back: "ホームへ戻る",
+      groups: [
+        {
+          name: "はじめに",
+          items: [
+            { cmd: "/북마클릿", desc: "記録連携に必要なブックマークレット登録ガイドページを開きます。" },
+            { cmd: "/설정", desc: "個人設定ページを開きます。" },
+          ],
+        },
+        {
+          name: "記録",
+          items: [
+            { cmd: "/프로필", desc: "自分のmaimai DXプロフィールを埋め込みで表示します。" },
+            { cmd: "/레이팅표", desc: "レーティング対象曲を画像で出力します。" },
+            { cmd: "/성과", desc: "指定した日の成果を画像で出力します。" },
+            { cmd: "/지방", desc: "地方ごとの進行度を埋め込みで表示します。" },
+            { cmd: "/검색", desc: "条件に合う曲を検索します。" },
+          ],
+        },
+        {
+          name: "選曲",
+          items: [
+            { cmd: "/곡추천", desc: "対象曲に基づいてランダムに3曲おすすめします。" },
+            { cmd: "/랜덤", desc: "条件に合う曲をランダムに選曲します。" },
+            { cmd: "/운세", desc: "ユーザーごとに異なる「今日の一曲」を表示します。（14+ ~ 15）" },
+          ],
+        },
+        {
+          name: "サポート",
+          items: [{ cmd: "/문의", desc: "ポップアップからバグを報告できます。" }],
+        },
+      ],
+    },
   },
 };
 

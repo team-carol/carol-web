@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/components/LanguageProvider";
+import { Nav } from "@/components/Nav";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "캐롤봇 — maimai DX 기록을, 디스코드에서 바로",
   description:
     "캐롤봇으로 빠르게 마이마이 기록을 공유해보세요. 프로필, 레이팅 대상곡, 하루의 성과까지 슬래시 명령어 하나면 충분합니다.",
-  icons: { icon: "/carolbot-avatar.svg" },
+  icons: { icon: "/carolbot-avatar.png" },
 };
 
 export default function RootLayout({
@@ -35,7 +38,13 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <LanguageProvider>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+        </LanguageProvider>
+      </body>
     </html>
   );
 }
