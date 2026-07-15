@@ -105,12 +105,15 @@ async function resolveTweet(
   const tweet = await getTweet(id);
   if (!tweet) return null;
 
-  const media = tweet.mediaDetails?.find((m) => m.type === "photo");
+  const images = tweet.mediaDetails
+    ?.filter((m) => m.type === "photo")
+    .map((m) => m.media_url_https)
+    .filter(Boolean);
   const created = new Date(tweet.created_at);
 
   return {
     text: cleanText(tweet.text),
-    image: media?.media_url_https,
+    images: images?.length ? images : undefined,
     date: formatDate(created),
     sortKey: created.getTime(),
   };

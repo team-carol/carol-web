@@ -37,14 +37,28 @@ export function PatchNotes({ tweets }: { tweets: Tweet[] }) {
             <p className="m-0 flex-1 whitespace-pre-line text-[15px] leading-[1.6] text-ink-soft">
               {tw.text}
             </p>
-            {tw.image && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={tw.image}
-                alt=""
-                loading="lazy"
-                className="max-h-[220px] w-full rounded-xl border border-border-soft object-cover"
-              />
+            {tw.images && tw.images.length > 0 && (
+              <div
+                className={
+                  tw.images.length === 1 ? "" : "grid grid-cols-2 gap-2"
+                }
+              >
+                {tw.images.map((src, j) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={`${src}-${j}`}
+                    src={src}
+                    alt=""
+                    loading="lazy"
+                    className={
+                      "w-full rounded-xl border border-border-soft object-cover " +
+                      (tw.images!.length === 1
+                        ? "max-h-[260px]"
+                        : "aspect-square")
+                    }
+                  />
+                ))}
+              </div>
             )}
             <p className="m-0 text-[13px] text-dim">{tw.date} · X</p>
           </article>

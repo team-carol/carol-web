@@ -320,7 +320,7 @@ export const dictionary: Record<Lang, Dictionary> = {
 export interface Tweet {
   date: string;
   text: string;
-  image?: string;
+  images?: string[];
 }
 
 export const fallbackTweets: Tweet[] = [
