@@ -5,6 +5,64 @@ import { secondaryCta } from "./cta";
 import { site } from "@/lib/config";
 import type { Tweet } from "@/lib/tweets";
 
+// Twitter-style media grid: 1 = single, 2 = side by side, 3 = one tall + two
+// stacked, 4 = 2×2. The whole block is a fixed 16:9 box so cards stay compact.
+function TweetGallery({ images }: { images: string[] }) {
+  const imgs = images.slice(0, 4);
+  const cell = "h-full w-full min-h-0 object-cover";
+
+  if (imgs.length === 1) {
+    return (
+      <img
+        src={imgs[0]}
+        alt=""
+        loading="lazy"
+        className="max-h-[300px] w-full rounded-xl border border-border-soft object-cover"
+      />
+    );
+  }
+
+  const rows = imgs.length === 2 ? "grid-rows-1" : "grid-rows-2";
+
+  return (
+    <div
+      className={`grid aspect-[16/9] grid-cols-2 ${rows} gap-[2px] overflow-hidden rounded-xl border border-border-soft`}
+    >
+      {imgs.length === 2 && (
+        <>
+          <img src={imgs[0]} alt="" loading="lazy" className={cell} />
+          <img src={imgs[1]} alt="" loading="lazy" className={cell} />
+        </>
+      )}
+      {imgs.length === 3 && (
+        <>
+          <img
+            src={imgs[0]}
+            alt=""
+            loading="lazy"
+            className={`${cell} row-span-2`}
+          />
+          <img src={imgs[1]} alt="" loading="lazy" className={cell} />
+          <img src={imgs[2]} alt="" loading="lazy" className={cell} />
+        </>
+      )}
+      {imgs.length >= 4 && (
+        <>
+          {imgs.map((src, i) => (
+            <img
+              key={`${src}-${i}`}
+              src={src}
+              alt=""
+              loading="lazy"
+              className={cell}
+            />
+          ))}
+        </>
+      )}
+    </div>
+  );
+}
+
 export function PatchNotes({ tweets }: { tweets: Tweet[] }) {
   const { t } = useLanguage();
 
@@ -38,27 +96,7 @@ export function PatchNotes({ tweets }: { tweets: Tweet[] }) {
               {tw.text}
             </p>
             {tw.images && tw.images.length > 0 && (
-              <div
-                className={
-                  tw.images.length === 1 ? "" : "grid grid-cols-2 gap-2"
-                }
-              >
-                {tw.images.map((src, j) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={`${src}-${j}`}
-                    src={src}
-                    alt=""
-                    loading="lazy"
-                    className={
-                      "w-full rounded-xl border border-border-soft object-cover " +
-                      (tw.images!.length === 1
-                        ? "max-h-[260px]"
-                        : "aspect-square")
-                    }
-                  />
-                ))}
-              </div>
+              <TweetGallery images={tw.images} />
             )}
             <p className="m-0 text-[13px] text-dim">{tw.date} · X</p>
           </article>
