@@ -84,7 +84,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       { title: "/성과", copy: "특정 날짜에 이룬 성과를 이미지로 정리해 보여줍니다." },
       { title: "/검색", copy: "입력한 조건에 맞는 곡을 검색합니다." },
     ],
-    featMore: "11개 명령어 전체 보기",
+    featMore: "14개 명령어 전체 보기",
     patchTitle: "패치노트",
     patchSub: "새로운 소식은 X에서 가장 먼저 전해드립니다.",
     patchFollow: "@carolbot_maimai 팔로우",
@@ -99,7 +99,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       "캐롤봇은 기록 공유의 편의를 위해 제작한 maimai DX의 팬 프로젝트입니다. 캐롤봇에 사용된 콘텐츠의 저작권은 SEGA 및 각 소유자들에게 있습니다.",
     commands: {
       title: "슬래시 명령어",
-      sub: "캐롤봇이 제공하는 10개의 명령어입니다. 디스코드 채팅창에 / 를 입력해 사용하세요.",
+      sub: "캐롤봇이 제공하는 14개의 명령어입니다. 디스코드 채팅창에 / 를 입력해 사용하세요.",
       uiCopy:
         "디스코드의 '앱 추가'로 내 계정에 캐롤봇을 추가하면, 봇이 초대되지 않은 서버에서도 위 명령어를 그대로 사용할 수 있습니다.",
       back: "홈으로 돌아가기",
@@ -127,6 +127,14 @@ export const dictionary: Record<Lang, Dictionary> = {
             { cmd: "/곡추천", desc: "레이팅 대상곡을 바탕으로 임의의 곡 3개를 추천합니다." },
             { cmd: "/랜덤", desc: "입력한 조건에 맞는 곡을 랜덤으로 선곡합니다." },
             { cmd: "/운세", desc: "사용자마다 다른 '오늘의 곡'을 임베드로 표시합니다. (14+ ~ 15)" },
+          ],
+        },
+        {
+          name: "목표",
+          items: [
+            { cmd: "/목표 추가", desc: "여러 유형의 목표를 세울 수 있습니다." },
+            { cmd: "/목표 삭제", desc: "특정 목표를 삭제할 수 있습니다." },
+            { cmd: "/목표 목록", desc: "자신이 세운 목표와 달성률을 확인할 수 있습니다." },
           ],
         },
         {
@@ -171,7 +179,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       },
       { title: "/검색 — Search", copy: "Searches for songs matching your conditions." },
     ],
-    featMore: "See all 11 commands",
+    featMore: "See all 14 commands",
     patchTitle: "Patch notes",
     patchSub: "News ships first on X.",
     patchFollow: "Follow @carolbot_maimai",
@@ -186,7 +194,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       "Carolbot is a fan project built to make sharing maimai DX records easier. Copyright of the content used in Carolbot belongs to SEGA and the respective owners.",
     commands: {
       title: "Slash commands",
-      sub: "All 10 commands Carolbot provides. Type / in any Discord chat to use them.",
+      sub: "All 14 commands Carolbot provides. Type / in any Discord chat to use them.",
       uiCopy:
         "Add Carolbot to your own account with Discord’s “Add App” — then use every command above in any server, even ones the bot was never invited to.",
       back: "Back to home",
@@ -220,6 +228,14 @@ export const dictionary: Record<Lang, Dictionary> = {
               cmd: "/운세",
               desc: "Shows your personal “song of the day” as an embed. (Lv 14+ ~ 15)",
             },
+          ],
+        },
+        {
+          name: "Goals",
+          items: [
+            { cmd: "/목표 추가", desc: "Set goals of several different types." },
+            { cmd: "/목표 삭제", desc: "Delete a specific goal." },
+            { cmd: "/목표 목록", desc: "Check the goals you set and how far along they are." },
           ],
         },
         {
@@ -261,7 +277,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       { title: "/성과 — 成果", copy: "指定した日の成果を画像でまとめます。" },
       { title: "/검색 — 検索", copy: "条件に合う曲を検索します。" },
     ],
-    featMore: "全11コマンドを見る",
+    featMore: "全14コマンドを見る",
     patchTitle: "パッチノート",
     patchSub: "最新情報はXでいち早くお届けします。",
     patchFollow: "@carolbot_maimai をフォロー",
@@ -276,7 +292,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       "Carolbotは記録共有の利便性のために制作したmaimai DXのファンプロジェクトです。Carolbotで使用されているコンテンツの著作権はSEGA及び各権利者に帰属します。",
     commands: {
       title: "スラッシュコマンド",
-      sub: "Carolbotが提供する11のコマンドです。Discordのチャットで / を入力して使えます。",
+      sub: "Carolbotが提供する14のコマンドです。Discordのチャットで / を入力して使えます。",
       uiCopy:
         "Discordの「アプリを追加」で自分のアカウントに追加すれば、Botのいないサーバーでも上のコマンドをそのまま使えます。",
       back: "ホームへ戻る",
@@ -304,6 +320,14 @@ export const dictionary: Record<Lang, Dictionary> = {
             { cmd: "/곡추천", desc: "対象曲に基づいてランダムに3曲おすすめします。" },
             { cmd: "/랜덤", desc: "条件に合う曲をランダムに選曲します。" },
             { cmd: "/운세", desc: "ユーザーごとに異なる「今日の一曲」を表示します。（14+ ~ 15）" },
+          ],
+        },
+        {
+          name: "目標",
+          items: [
+            { cmd: "/목표 추가", desc: "さまざまな種類の目標を設定できます。" },
+            { cmd: "/목표 삭제", desc: "特定の目標を削除できます。" },
+            { cmd: "/목표 목록", desc: "自分が立てた目標と達成率を確認できます。" },
           ],
         },
         {
