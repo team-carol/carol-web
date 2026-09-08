@@ -38,10 +38,7 @@ export async function getStats(): Promise<SiteStats> {
     return {
       userCount: formatCount(data.userCount) ?? fallbackStats.userCount,
       serverCount: formatCount(data.serverCount) ?? fallbackStats.serverCount,
-      version:
-        typeof data.version === "string" && data.version.trim()
-          ? data.version.trim()
-          : fallbackStats.version,
+      version: formatVersion(data.version) ?? fallbackStats.version,
     };
   } catch (err) {
     console.error("[stats] fetch failed, using fallback:", err);
@@ -60,4 +57,13 @@ function formatCount(value: unknown): string | null {
         : NaN;
   if (!Number.isFinite(n)) return null;
   return Math.round(n).toLocaleString("en-US");
+}
+
+// "1.1.1" -> "v1.1.1", matching the design's version display. Values that
+// already carry a prefix (or aren't numeric) pass through unchanged.
+function formatVersion(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const v = value.trim();
+  if (!v) return null;
+  return /^\d/.test(v) ? `v${v}` : v;
 }
