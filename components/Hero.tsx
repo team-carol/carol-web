@@ -1,10 +1,9 @@
 "use client";
 
-import { ViewTransition } from "react";
 import Link from "next/link";
 import { useLanguage } from "./LanguageProvider";
 import { primaryCta, secondaryCta } from "./cta";
-import { commandChips, commandTransitionName, site } from "@/lib/config";
+import { commandChips, site } from "@/lib/config";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -12,12 +11,10 @@ export function Hero() {
   return (
     <section className="mx-auto grid max-w-[1200px] items-center gap-[clamp(40px,6vw,72px)] px-[clamp(20px,4vw,40px)] pt-[clamp(56px,8vw,104px)] [grid-template-columns:repeat(auto-fit,minmax(340px,1fr))]">
       <div>
-        <ViewTransition name="page-title" share="morph">
-          <h1 className="m-0 text-[clamp(40px,5vw,64px)] font-medium leading-[1.15] tracking-[-0.01em]">
-            <span className="block">{t.hero1}</span>
-            <span className="block">{t.hero2}</span>
-          </h1>
-        </ViewTransition>
+        <h1 className="m-0 text-[clamp(40px,5vw,64px)] font-medium leading-[1.15] tracking-[-0.01em]">
+          <span className="block">{t.hero1}</span>
+          <span className="block">{t.hero2}</span>
+        </h1>
         <p className="mt-6 max-w-[44ch] text-[clamp(17px,1.6vw,20px)] leading-[1.6] text-muted">
           {t.sub}
         </p>
@@ -45,15 +42,12 @@ export function Hero() {
         />
         <div className="flex flex-wrap justify-center gap-2">
           {commandChips.map((chip) => (
-            <ViewTransition
+            <span
               key={chip}
-              name={commandTransitionName(chip)}
-              share="morph"
+              className="rounded-3xl bg-surface-2 px-[14px] py-[6px] text-sm text-ink-2"
             >
-              <span className="rounded-3xl bg-surface-2 px-[14px] py-[6px] text-sm text-ink-2">
-                {chip}
-              </span>
-            </ViewTransition>
+              {chip}
+            </span>
           ))}
         </div>
       </div>

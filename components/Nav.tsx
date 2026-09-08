@@ -25,10 +25,7 @@ export function Nav() {
   const onCommands = pathname === site.commandsHref;
 
   return (
-    <nav
-      style={{ viewTransitionName: "site-header" }}
-      className="sticky top-0 z-10 border-b border-border-soft bg-canvas/90 backdrop-blur-md"
-    >
+    <nav className="sticky top-0 z-10 border-b border-border-soft bg-canvas/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1200px] items-center gap-6 px-[clamp(20px,4vw,40px)] py-[14px]">
         <Link
           href="/"

@@ -35,25 +35,3 @@ export const commandChips = [
   "/검색",
   "/운세",
 ];
-
-// Stable ASCII ids used as view-transition names, so a command chip on the
-// landing page morphs into the same command's row on /commands. CSS idents
-// can't contain "/", hence the slug map.
-const commandSlugs: Record<string, string> = {
-  "/프로필": "profile",
-  "/레이팅표": "rating",
-  "/곡추천": "recommend",
-  "/랜덤": "random",
-  "/성과": "achievements",
-  "/검색": "search",
-  "/운세": "fortune",
-  "/북마클릿": "bookmarklet",
-  "/설정": "settings",
-  "/지방": "area",
-  "/문의": "report",
-};
-
-export function commandTransitionName(cmd: string): string | undefined {
-  const slug = commandSlugs[cmd.trim()];
-  return slug ? `cmd-${slug}` : undefined;
-}
