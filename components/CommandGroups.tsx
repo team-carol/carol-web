@@ -1,6 +1,8 @@
 "use client";
 
+import { ViewTransition } from "react";
 import { useLanguage } from "./LanguageProvider";
+import { commandTransitionName } from "@/lib/config";
 
 export function CommandGroups() {
   const { t } = useLanguage();
@@ -22,9 +24,14 @@ export function CommandGroups() {
                 }
               >
                 <p className="m-0">
-                  <span className="inline-block rounded-lg bg-surface-2 px-[10px] py-[3px] text-[15px] font-medium text-ink-2">
-                    {c.cmd}
-                  </span>
+                  <ViewTransition
+                    name={commandTransitionName(c.cmd)}
+                    share="morph"
+                  >
+                    <span className="inline-block rounded-lg bg-surface-2 px-[10px] py-[3px] text-[15px] font-medium text-ink-2">
+                      {c.cmd}
+                    </span>
+                  </ViewTransition>
                 </p>
                 <p className="m-0 text-[15.5px] leading-[1.6] text-muted">
                   {c.desc}
