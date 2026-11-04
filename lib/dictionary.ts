@@ -94,9 +94,9 @@ export const dictionary: Record<Lang, Dictionary> = {
     footPrivacy: "개인정보 처리 방침",
     footSupport: "지원",
     footDisc1:
-      "캐롤봇의 플레이 기록, 곡 정보, 보면 상수와 앨범 재킷 이미지는 maishift(maimai.shiftpsh.com)의 공식 API에서 받습니다. 캐롤봇은 maishift가 운영하는 서비스가 아닙니다.",
+      "캐롤봇에서 사용되는 플레이 기록과 보면 상수는 maishift(maimai.shiftpsh.com)에서 가져오고 있습니다. maishift를 제작하신 X @shiftpsh 님에게 감사의 말씀을 드립니다.",
     footDisc2:
-      "캐롤봇은 기록 공유의 편의를 위해 제작한 maimai DX의 비공식 팬 프로젝트로, SEGA와 관계가 없습니다. 캐롤봇에 사용된 콘텐츠의 저작권은 SEGA 및 각 소유자들에게 있습니다.",
+      "캐롤봇은 기록 공유의 편의를 위해 제작된 maimai DX의 비영리 비공식 팬 프로젝트입니다. 캐롤봇에 사용된 콘텐츠의 저작권은 SEGA 및 각 소유자들에게 있습니다.",
     commands: {
       title: "슬래시 명령어",
       sub: "캐롤봇이 제공하는 26개의 명령어입니다. 디스코드 채팅창에 / 를 입력해 사용하세요.",
@@ -249,9 +249,9 @@ export const dictionary: Record<Lang, Dictionary> = {
     footPrivacy: "Privacy Policy",
     footSupport: "Support",
     footDisc1:
-      "Carolbot’s play records, song data, chart constants and jacket images come from the official maishift (maimai.shiftpsh.com) API. Carolbot is not a service run by maishift.",
+      "Play records and chart constants used in Carolbot come from maishift (maimai.shiftpsh.com). Our thanks to X @shiftpsh, the creator of maishift.",
     footDisc2:
-      "Carolbot is an unofficial fan project built to make sharing maimai DX records easier and is not affiliated with SEGA. Copyright of the content used in Carolbot belongs to SEGA and the respective owners.",
+      "Carolbot is a non-profit, unofficial fan project built to make sharing maimai DX records easier. Copyright of the content used in Carolbot belongs to SEGA and the respective owners.",
     commands: {
       title: "Slash commands",
       sub: "All 26 commands Carolbot provides. Type / in any Discord chat to use them.",
@@ -413,9 +413,9 @@ export const dictionary: Record<Lang, Dictionary> = {
     footPrivacy: "プライバシーポリシー",
     footSupport: "サポート",
     footDisc1:
-      "Carolbotのプレイ記録・楽曲情報・譜面定数・ジャケット画像はmaishift（maimai.shiftpsh.com）の公式APIから取得しています。Carolbotはmaishiftが運営するサービスではありません。",
+      "Carolbotで使用されるプレイ記録や譜面定数はmaishift（maimai.shiftpsh.com）から取得しています。maishiftを制作されたX @shiftpsh 様に感謝申し上げます。",
     footDisc2:
-      "Carolbotは記録共有の利便性のために制作したmaimai DXの非公式ファンプロジェクトであり、SEGAとは関係ありません。Carolbotで使用されているコンテンツの著作権はSEGA及び各権利者に帰属します。",
+      "Carolbotは記録共有の利便性のために制作されたmaimai DXの非営利・非公式ファンプロジェクトです。Carolbotで使用されているコンテンツの著作権はSEGA及び各権利者に帰属します。",
     commands: {
       title: "スラッシュコマンド",
       sub: "Carolbotが提供する26のコマンドです。Discordのチャットで / を入力して使えます。",
