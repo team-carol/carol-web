@@ -26,10 +26,10 @@ export function Nav() {
 
   return (
     <nav className="sticky top-0 z-10 border-b border-border-soft bg-canvas/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1200px] items-center gap-6 px-[clamp(20px,4vw,40px)] py-[14px]">
+      <div className="mx-auto flex max-w-[1200px] items-center gap-3 px-[clamp(20px,4vw,40px)] py-[14px] sm:gap-6">
         <Link
           href="/"
-          className="flex items-center gap-[10px] text-[17px] font-medium !text-ink hover:!text-ink"
+          className="flex shrink-0 items-center gap-[10px] text-[17px] font-medium !text-ink hover:!text-ink"
         >
           <img
             src="/carolbot-avatar.png"
@@ -38,7 +38,7 @@ export function Nav() {
             height={30}
             className="h-[30px] w-[30px] rounded-full bg-white object-cover shadow-[0_0_0_1px_#2e2e33]"
           />
-          캐롤봇
+          <span className="hidden sm:inline">캐롤봇</span>
         </Link>
 
         <span className="flex-1" />
@@ -47,15 +47,14 @@ export function Nav() {
           href={site.commandsHref}
           aria-current={onCommands ? "page" : undefined}
           className={
-            onCommands
-              ? "text-[15px] font-medium !text-accent-soft"
-              : "text-[15px] !text-muted hover:!text-ink"
+            "shrink-0 whitespace-nowrap text-[15px] " +
+            (onCommands ? "font-medium !text-accent-soft" : "!text-muted hover:!text-ink")
           }
         >
           {t.navCommands}
         </Link>
 
-        <span className="flex items-center gap-[2px]">
+        <span className="flex shrink-0 items-center gap-[2px]">
           {LANGS.map((l) => (
             <button
               key={l}
@@ -86,9 +85,10 @@ export function Nav() {
 
         <a
           href={site.inviteUrl}
-          className={`${primaryCta} px-[18px] py-[9px] text-[15px] !text-accent-ink`}
+          className={`${primaryCta} shrink-0 whitespace-nowrap px-3 py-[7px] text-[14px] !text-accent-ink sm:px-[18px] sm:py-[9px] sm:text-[15px]`}
         >
-          {t.cta1}
+          <span className="sm:hidden">{t.navInvite}</span>
+          <span className="hidden sm:inline">{t.cta1}</span>
         </a>
       </div>
     </nav>
