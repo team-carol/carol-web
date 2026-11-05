@@ -2,14 +2,14 @@ import { stats as fallbackStats } from "./config";
 
 // Live headline stats, fetched from the Carolbot web server's public endpoint.
 //
-// Configure with (server-only, not secret but no need to expose):
-//   STATS_URL  — e.g. https://maimai.bitworkspace.kr/api/stats
+// Override with (server-only, not secret but no need to expose):
+//   STATS_URL  — defaults to https://maimai.team-carol.com/api/stats
 //
 // Expected response (see /api/stats spec):
 //   { "userCount": 1024, "serverCount": 128, "version": "v2.4" }
 //
-// When STATS_URL is unset or the fetch fails, the static defaults in
-// lib/config.ts are used so the section always renders.
+// When the fetch fails, the static defaults in lib/config.ts are used so the
+// section always renders.
 
 export interface SiteStats {
   userCount: string;
@@ -17,7 +17,8 @@ export interface SiteStats {
   version: string;
 }
 
-const STATS_URL = process.env.STATS_URL;
+const STATS_URL =
+  process.env.STATS_URL || "https://maimai.team-carol.com/api/stats";
 const REVALIDATE_SECONDS = 600;
 
 export async function getStats(): Promise<SiteStats> {
