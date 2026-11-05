@@ -81,12 +81,12 @@ export const dictionary: Record<Lang, Dictionary> = {
       { title: "/레이팅표", copy: "레이팅 대상곡을 한 장의 이미지로 출력합니다." },
       {
         title: "/곡추천 · /랜덤",
-        copy: "같은 레이팅대 기록을 바탕으로 한 3곡 추천, 조건에 맞는 랜덤 선곡.",
+        copy: "조건 창에서 골라 받는 곡 추천과 랜덤 선곡. 마음에 안 들면 다시 뽑기.",
       },
       { title: "/성과", copy: "특정 날짜에 이룬 성과를 이미지로 정리해 보여줍니다." },
       { title: "/검색", copy: "입력한 조건에 맞는 곡을 검색합니다." },
     ],
-    featMore: "26개 명령어 전체 보기",
+    featMore: "24개 명령어 전체 보기",
     patchTitle: "패치노트",
     patchSub: "새로운 소식은 X에서 가장 먼저 전해드립니다.",
     patchFollow: "@carolbot_maimai 팔로우",
@@ -101,7 +101,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       "캐롤봇은 기록 공유의 편의를 위해 제작된 maimai DX의 비영리 비공식 팬 프로젝트입니다. 캐롤봇에 사용된 콘텐츠의 저작권은 SEGA 및 각 소유자들에게 있습니다.",
     commands: {
       title: "슬래시 명령어",
-      sub: "캐롤봇이 제공하는 26개의 명령어입니다. 디스코드 채팅창에 / 를 입력해 사용하세요.",
+      sub: "캐롤봇이 제공하는 24개의 명령어입니다. 디스코드 채팅창에 / 를 입력해 사용하세요.",
       uiCopy:
         "디스코드의 '앱 추가'로 내 계정에 캐롤봇을 추가하면, 봇이 초대되지 않은 서버에서도 위 명령어를 그대로 사용할 수 있습니다.",
       back: "홈으로 돌아가기",
@@ -139,11 +139,11 @@ export const dictionary: Record<Lang, Dictionary> = {
             { cmd: "/성과", desc: "특정 날짜에 이룬 성과를 이미지로 출력합니다." },
             {
               cmd: "/플레이트",
-              desc: "버전 플레이트(極·将·神·舞舞·覇者) 진행도를 이미지로 출력합니다. 버전을 고르면 남은 보면과 같은 레이팅대 기준 예상 플레이 수를 보여줍니다.",
+              desc: "버전 플레이트(極·将·神·舞舞·覇者) 진행도를 이미지로 출력합니다. 버전을 고르면 플레이트 그림과 남은 보면, 같은 레이팅대 기록 기준 maishift 플레이트 난이도를 보여주고, 이미지 아래 메뉴로 다른 버전·종류나 전체 보기로 바꿀 수 있습니다.",
             },
             {
               cmd: "/플레이리스트",
-              desc: "maishift 공개 플레이리스트의 보면과 자신의 기록을 한 장의 이미지로 출력합니다.",
+              desc: "maishift 공개 플레이리스트의 보면과 자신의 기록을 한 장의 이미지로 출력합니다. 캐롤봇에서 연 적 있는 플레이리스트는 이름으로 고를 수 있고, 번호·주소로도 찾을 수 있습니다.",
             },
             {
               cmd: "/사진관",
@@ -165,7 +165,7 @@ export const dictionary: Record<Lang, Dictionary> = {
             { cmd: "/검색", desc: "곡을 검색해 자신의 기록과 함께 보여줍니다." },
             {
               cmd: "/보면",
-              desc: "보면을 미리보기와 웹 플레이어로 재생합니다. 곡명으로 찾거나 simai 파일(maidata.txt)을 올릴 수 있습니다.",
+              desc: "보면을 미리보기와 웹 플레이어로 재생합니다. 곡명으로 찾거나 simai 파일(maidata.txt)을 올릴 수 있고, 곡명으로 찾으면 같은 곡의 다른 난이도 버튼도 나옵니다.",
             },
             { cmd: "/레이팅계산기", desc: "상수와 달성률로 곡 레이팅과 총합 레이팅 변화를 계산합니다." },
           ],
@@ -175,11 +175,11 @@ export const dictionary: Record<Lang, Dictionary> = {
           items: [
             {
               cmd: "/곡추천",
-              desc: "같은 레이팅대가 흔히 달성한 곡을 우선해 3곡을 추천합니다. '레벨'·'기준'을 고르면 그 레벨을 비슷하게 깬 사람들이 많이 깬 곡 중 아직 못 깬 곡을 추천합니다.",
+              desc: "본인에게만 보이는 조건 창에서 고른 대로 곡을 추천합니다. '레이팅 올리기'는 같은 레이팅대가 흔히 달성한 곡을 우선하고, '레벨 다음 곡'은 그 레벨을 비슷하게 깬 사람들이 많이 깬 곡 중 아직 못 깬 곡을 고릅니다. 결과 아래 '다시 뽑기'·'조건 바꾸기' 버튼이 있고, 직전에 고른 조건을 기억합니다.",
             },
             {
               cmd: "/랜덤",
-              desc: "입력한 조건에 맞는 곡을 랜덤으로 선곡합니다. maishift 플레이리스트 안에서도 뽑을 수 있습니다.",
+              desc: "조건 창에서 고른 조건(상수 범위·난이도·장르·버전·maishift 플레이리스트 등)에 맞는 곡을 랜덤으로 선곡합니다. '다시 뽑기'·'조건 바꾸기' 버튼이 있고, 직전에 고른 조건을 기억합니다.",
             },
             { cmd: "/운세", desc: "사용자마다 다른 '오늘의 곡'을 임베드로 표시합니다. (14+ ~ 15)" },
           ],
@@ -187,9 +187,10 @@ export const dictionary: Record<Lang, Dictionary> = {
         {
           name: "목표",
           items: [
-            { cmd: "/목표 추가", desc: "여러 유형의 목표를 세울 수 있습니다." },
-            { cmd: "/목표 삭제", desc: "특정 목표를 삭제할 수 있습니다." },
-            { cmd: "/목표 목록", desc: "자신이 세운 목표와 달성률을 확인할 수 있습니다." },
+            {
+              cmd: "/목표",
+              desc: "자신이 세운 목표와 진행도를 보여줍니다. 아래 버튼으로 레이팅·채보·집계 목표를 추가하거나 삭제할 수 있습니다.",
+            },
           ],
         },
         {
@@ -234,7 +235,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       },
       {
         title: "/곡추천 · /랜덤 — Picks",
-        copy: "Three picks based on what players at your rating clear, or a random song by your conditions.",
+        copy: "Song picks and random draws from conditions you choose in a form. Not feeling it? Draw again.",
       },
       {
         title: "/성과 — Achievements",
@@ -242,7 +243,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       },
       { title: "/검색 — Search", copy: "Searches for songs matching your conditions." },
     ],
-    featMore: "See all 26 commands",
+    featMore: "See all 24 commands",
     patchTitle: "Patch notes",
     patchSub: "News ships first on X.",
     patchFollow: "Follow @carolbot_maimai",
@@ -257,7 +258,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       "Carolbot is a non-profit, unofficial fan project built to make sharing maimai DX records easier. Copyright of the content used in Carolbot belongs to SEGA and the respective owners.",
     commands: {
       title: "Slash commands",
-      sub: "All 26 commands Carolbot provides. Type / in any Discord chat to use them.",
+      sub: "All 24 commands Carolbot provides. Type / in any Discord chat to use them.",
       uiCopy:
         "Add Carolbot to your own account with Discord’s “Add App” — then use every command above in any server, even ones the bot was never invited to.",
       back: "Back to home",
@@ -298,11 +299,11 @@ export const dictionary: Record<Lang, Dictionary> = {
             { cmd: "/성과", desc: "Outputs the achievements of a given date as an image." },
             {
               cmd: "/플레이트",
-              desc: "Renders your version plate (極·将·神·舞舞·覇者) progress as an image. Pick a version to see the charts left and estimated plays for players at your rating.",
+              desc: "Renders your version plate (極·将·神·舞舞·覇者) progress as an image. Pick a version to see its plate, the charts left and maishift’s plate difficulty based on records at your rating, then switch version, type or the full overview from the menu below the image.",
             },
             {
               cmd: "/플레이리스트",
-              desc: "Renders a public maishift playlist’s charts with your records as a single image.",
+              desc: "Renders a public maishift playlist’s charts with your records as a single image. Playlists opened in Carolbot before can be picked by name; a number or URL works too.",
             },
             {
               cmd: "/사진관",
@@ -324,7 +325,7 @@ export const dictionary: Record<Lang, Dictionary> = {
             { cmd: "/검색", desc: "Searches for songs and shows them with your records." },
             {
               cmd: "/보면",
-              desc: "Plays a chart as a preview and in the web player. Find it by song name or upload a simai file (maidata.txt).",
+              desc: "Plays a chart as a preview and in the web player. Find it by song name or upload a simai file (maidata.txt); song-name results also get buttons for the song’s other difficulties.",
             },
             {
               cmd: "/레이팅계산기",
@@ -337,11 +338,11 @@ export const dictionary: Record<Lang, Dictionary> = {
           items: [
             {
               cmd: "/곡추천",
-              desc: "Recommends 3 songs, favoring ones players at your rating commonly clear. Pick a level and criterion to get songs you haven’t cleared yet that players with similar clears at that level often have.",
+              desc: "Recommends songs from conditions you pick in a form only you can see. “Raise rating” favors songs players at your rating commonly clear; “Next at a level” picks songs you haven’t cleared that players with similar clears at that level often have. Results come with “Draw again” and “Change conditions” buttons, and your last conditions are remembered.",
             },
             {
               cmd: "/랜덤",
-              desc: "Picks a random song matching your conditions. You can also draw from a maishift playlist.",
+              desc: "Picks random songs matching the conditions you pick in a form (constant range, difficulty, genre, version, a maishift playlist and more). Comes with “Draw again” and “Change conditions” buttons, and your last conditions are remembered.",
             },
             {
               cmd: "/운세",
@@ -352,9 +353,10 @@ export const dictionary: Record<Lang, Dictionary> = {
         {
           name: "Goals",
           items: [
-            { cmd: "/목표 추가", desc: "Set goals of several different types." },
-            { cmd: "/목표 삭제", desc: "Delete a specific goal." },
-            { cmd: "/목표 목록", desc: "Check the goals you set and how far along they are." },
+            {
+              cmd: "/목표",
+              desc: "Shows the goals you set and how far along they are. Add rating, chart or count goals, or delete one, with the buttons below.",
+            },
           ],
         },
         {
@@ -402,12 +404,12 @@ export const dictionary: Record<Lang, Dictionary> = {
       },
       {
         title: "/곡추천 · /랜덤 — 選曲",
-        copy: "同じレーティング帯の記録に基づく3曲のおすすめと、条件付きランダム選曲。",
+        copy: "条件画面で選んでおすすめ・ランダム選曲。気に入らなければ引き直し。",
       },
       { title: "/성과 — 成果", copy: "指定した日の成果を画像でまとめます。" },
       { title: "/검색 — 検索", copy: "条件に合う曲を検索します。" },
     ],
-    featMore: "全26コマンドを見る",
+    featMore: "全24コマンドを見る",
     patchTitle: "パッチノート",
     patchSub: "最新情報はXでいち早くお届けします。",
     patchFollow: "@carolbot_maimai をフォロー",
@@ -422,7 +424,7 @@ export const dictionary: Record<Lang, Dictionary> = {
       "Carolbotは記録共有の利便性のために制作されたmaimai DXの非営利・非公式ファンプロジェクトです。Carolbotで使用されているコンテンツの著作権はSEGA及び各権利者に帰属します。",
     commands: {
       title: "スラッシュコマンド",
-      sub: "Carolbotが提供する26のコマンドです。Discordのチャットで / を入力して使えます。",
+      sub: "Carolbotが提供する24のコマンドです。Discordのチャットで / を入力して使えます。",
       uiCopy:
         "Discordの「アプリを追加」で自分のアカウントに追加すれば、Botのいないサーバーでも上のコマンドをそのまま使えます。",
       back: "ホームへ戻る",
@@ -460,11 +462,11 @@ export const dictionary: Record<Lang, Dictionary> = {
             { cmd: "/성과", desc: "指定した日の成果を画像で出力します。" },
             {
               cmd: "/플레이트",
-              desc: "バージョンプレート（極・将・神・舞舞・覇者）の進行度を画像で出力します。バージョンを選ぶと、残りの譜面と同じレーティング帯での予想プレイ回数を表示します。",
+              desc: "バージョンプレート（極・将・神・舞舞・覇者）の進行度を画像で出力します。バージョンを選ぶと、プレートの画像と残りの譜面、同じレーティング帯の記録に基づくmaishiftのプレート難易度を表示し、画像下のメニューで別のバージョン・種類や全体表示に切り替えられます。",
             },
             {
               cmd: "/플레이리스트",
-              desc: "maishiftの公開プレイリストの譜面と自分の記録を1枚の画像で出力します。",
+              desc: "maishiftの公開プレイリストの譜面と自分の記録を1枚の画像で出力します。Carolbotで開いたことのあるプレイリストは名前で選べ、番号・URLでも探せます。",
             },
             {
               cmd: "/사진관",
@@ -486,7 +488,7 @@ export const dictionary: Record<Lang, Dictionary> = {
             { cmd: "/검색", desc: "曲を検索し、自分の記録と一緒に表示します。" },
             {
               cmd: "/보면",
-              desc: "譜面をプレビューとWebプレイヤーで再生します。曲名で探すか、simaiファイル（maidata.txt）をアップロードできます。",
+              desc: "譜面をプレビューとWebプレイヤーで再生します。曲名で探すか、simaiファイル（maidata.txt）をアップロードできます。曲名で探すと同じ曲の他の難易度ボタンも表示されます。",
             },
             {
               cmd: "/레이팅계산기",
@@ -499,11 +501,11 @@ export const dictionary: Record<Lang, Dictionary> = {
           items: [
             {
               cmd: "/곡추천",
-              desc: "同じレーティング帯でよく達成されている曲を優先して3曲おすすめします。「レベル」「基準」を選ぶと、そのレベルを同じくらいクリアした人が多くクリアしている未クリアの曲をおすすめします。",
+              desc: "自分だけに見える条件画面で選んだ内容で曲をおすすめします。「レーティングを上げる」は同じレーティング帯でよく達成されている曲を優先し、「レベルの次の曲」はそのレベルを同じくらいクリアした人が多くクリアしている未クリアの曲を選びます。結果の下に「引き直し」「条件を変える」ボタンがあり、前回の条件を覚えています。",
             },
             {
               cmd: "/랜덤",
-              desc: "条件に合う曲をランダムに選曲します。maishiftのプレイリストの中から選ぶこともできます。",
+              desc: "条件画面で選んだ条件（定数の範囲・難易度・ジャンル・バージョン・maishiftのプレイリストなど）に合う曲をランダムに選曲します。「引き直し」「条件を変える」ボタンがあり、前回の条件を覚えています。",
             },
             { cmd: "/운세", desc: "ユーザーごとに異なる「今日の一曲」を表示します。（14+ ~ 15）" },
           ],
@@ -511,9 +513,10 @@ export const dictionary: Record<Lang, Dictionary> = {
         {
           name: "目標",
           items: [
-            { cmd: "/목표 추가", desc: "さまざまな種類の目標を設定できます。" },
-            { cmd: "/목표 삭제", desc: "特定の目標を削除できます。" },
-            { cmd: "/목표 목록", desc: "自分が立てた目標と達成率を確認できます。" },
+            {
+              cmd: "/목표",
+              desc: "自分が立てた目標と進行度を表示します。下のボタンからレーティング・譜面・集計の目標を追加したり削除したりできます。",
+            },
           ],
         },
         {
