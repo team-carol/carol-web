@@ -17,7 +17,7 @@ export function CommandGroups() {
               <div
                 key={c.cmd}
                 className={
-                  "grid items-baseline gap-x-7 gap-y-[6px] py-[18px] [grid-template-columns:minmax(110px,170px)_minmax(0,1fr)] " +
+                  "grid grid-cols-1 items-baseline gap-x-7 gap-y-[6px] py-[18px] sm:[grid-template-columns:minmax(110px,170px)_minmax(0,1fr)] " +
                   (i === 0 ? "" : "border-t border-border-soft")
                 }
               >
