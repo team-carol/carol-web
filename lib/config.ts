@@ -6,10 +6,10 @@ export const site = {
     process.env.NEXT_PUBLIC_INVITE_URL ??
     "https://discord.com/oauth2/authorize?client_id=1519147867124662362",
   termsUrl:
-    process.env.NEXT_PUBLIC_TERMS_URL ?? "https://maimai.bitworkspace.kr/terms",
+    process.env.NEXT_PUBLIC_TERMS_URL ?? "https://maimai.team-carol.com/terms",
   privacyUrl:
     process.env.NEXT_PUBLIC_PRIVACY_URL ??
-    "https://maimai.bitworkspace.kr/privacy",
+    "https://maimai.team-carol.com/privacy",
   twitterUrl: "https://x.com/carolbot_maimai",
   twitterHandle: "@carolbot_maimai",
   githubUrl: "https://github.com/team-carol",

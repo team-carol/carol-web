@@ -51,9 +51,9 @@ npm start        # 빌드 결과 실행
 
 `lib/stats.ts`가 캐롤봇 웹서버의 `GET /api/stats`를 ISR(10분)로 불러옵니다.
 
-- 환경변수 `STATS_URL`에 엔드포인트 주소를 넣으세요. (예: `https://maimai.bitworkspace.kr/api/stats`)
+- 기본 주소는 `https://maimai.team-carol.com/api/stats`이고, 환경변수 `STATS_URL`로 바꿀 수 있습니다.
 - 기대 응답: `{ "userCount": 1024, "serverCount": 128, "version": "v2.4" }`
-- 미설정/실패 시 `lib/config.ts`의 정적 기본값으로 폴백합니다.
+- 불러오지 못하면 `lib/config.ts`의 정적 기본값으로 폴백합니다.
 - `userCount`/`serverCount`는 숫자/문자 모두 허용하며 천 단위 콤마로 포맷됩니다.
 
 ## 남은 작업 / 참고
