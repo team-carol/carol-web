@@ -26,6 +26,7 @@ export interface CommandsPage {
 
 export interface Dictionary {
   navCommands: string;
+  navInvite: string;
   hero1: string;
   hero2: string;
   sub: string;
@@ -57,6 +58,7 @@ export interface Dictionary {
 export const dictionary: Record<Lang, Dictionary> = {
   ko: {
     navCommands: "명령어",
+    navInvite: "초대하기",
     hero1: "maimai DX 기록을,",
     hero2: "디스코드에서 바로.",
     sub: "캐롤봇으로 빠르게 마이마이 기록을 공유해보세요. 프로필, 레이팅 대상곡, 하루의 성과까지 슬래시 명령어 하나면 충분합니다.",
@@ -206,6 +208,7 @@ export const dictionary: Record<Lang, Dictionary> = {
   },
   en: {
     navCommands: "Commands",
+    navInvite: "Invite",
     hero1: "maimai DX records,",
     hero2: "right in Discord.",
     sub: "Share your maimai records in seconds with Carolbot. Profile, rating frame, daily achievements — one slash command is all it takes.",
@@ -373,6 +376,7 @@ export const dictionary: Record<Lang, Dictionary> = {
   },
   ja: {
     navCommands: "コマンド",
+    navInvite: "招待する",
     hero1: "maimai DXの記録を、",
     hero2: "Discordでそのまま。",
     sub: "Carolbotで、maimaiの記録をすばやく共有。プロフィール、レーティング対象曲、日々の成果まで、スラッシュコマンドひとつで。",
