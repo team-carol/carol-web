@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fontUrls } from "@team-carol/design-system";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { Nav } from "@/components/Nav";
@@ -43,18 +44,12 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin=""
         />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-        />
+        <link rel="stylesheet" href={fontUrls.pretendard} />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="stylesheet" href={fontUrls.googleFonts} />
       </head>
       <body className="flex min-h-full flex-col">
         <LanguageProvider>

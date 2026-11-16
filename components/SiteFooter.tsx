@@ -4,20 +4,20 @@ import { useLanguage } from "./LanguageProvider";
 import { site } from "@/lib/config";
 
 const pillLink =
-  "inline-flex items-center gap-2 rounded-[10px] border border-border-soft px-[14px] py-2 text-sm !text-ink-soft transition-colors hover:!border-[#f2857f] hover:!text-ink";
+  "inline-flex items-center gap-2 rounded-control border border-border px-[14px] py-2 text-sm text-ink-soft transition-colors hover:border-accent-hover hover:text-ink";
 
 export function SiteFooter() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-surface-2">
-      <div className="mx-auto grid max-w-[1200px] gap-10 px-[clamp(20px,4vw,40px)] pb-10 pt-[clamp(48px,6vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
+    <footer className="crl-footer">
+      <div className="mx-auto grid max-w-page gap-10 px-gutter pb-10 pt-[clamp(48px,6vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
         <div>
           <span className="flex items-center gap-[10px] text-xl font-medium text-ink">
             <img
               src="/carolbot-avatar.png"
               alt=""
-              className="h-[30px] w-[30px] rounded-full bg-white object-cover shadow-[0_0_0_1px_#33333a]"
+              className="h-[30px] w-[30px] rounded-full bg-white object-cover shadow-[0_0_0_1px_var(--crl-border)]"
             />
             team carol
           </span>
@@ -41,13 +41,13 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="m-0 mb-4 text-[13px] text-dim">{t.footTerms}</p>
+          <p className="mb-4 text-caption text-dim">{t.footTerms}</p>
           <div className="flex flex-col items-start gap-3">
             <a
               href={site.termsUrl}
               target="_blank"
               rel="noopener"
-              className="text-sm !text-ink-soft hover:!text-ink"
+              className="text-sm text-ink-soft hover:text-ink"
             >
               {t.footTos}
             </a>
@@ -55,7 +55,7 @@ export function SiteFooter() {
               href={site.privacyUrl}
               target="_blank"
               rel="noopener"
-              className="text-sm !text-ink-soft hover:!text-ink"
+              className="text-sm text-ink-soft hover:text-ink"
             >
               {t.footPrivacy}
             </a>
@@ -63,7 +63,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="m-0 mb-4 text-[13px] text-dim">{t.footSupport}</p>
+          <p className="mb-4 text-caption text-dim">{t.footSupport}</p>
           <div className="flex flex-col items-start gap-3">
             <a
               href={site.twitterUrl}
@@ -80,11 +80,11 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-[14px] px-[clamp(20px,4vw,40px)] pb-[clamp(40px,5vw,56px)]">
-        <p className="m-0 border-l-[3px] border-border-soft pl-[14px] text-[12.5px] leading-[1.7] text-faint">
+      <div className="mx-auto flex max-w-page flex-col gap-[14px] px-gutter pb-[clamp(40px,5vw,56px)]">
+        <p className="border-l-[3px] border-border pl-[14px] text-legal text-faint">
           {t.footDisc1}
         </p>
-        <p className="m-0 border-l-[3px] border-border-soft pl-[14px] text-[12.5px] leading-[1.7] text-faint">
+        <p className="border-l-[3px] border-border pl-[14px] text-legal text-faint">
           {t.footDisc2}
         </p>
       </div>

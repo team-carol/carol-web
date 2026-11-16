@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { buttonClassName } from "@team-carol/design-system";
 import { useLanguage } from "./LanguageProvider";
-import { primaryCta } from "./cta";
 import { site } from "@/lib/config";
 import { LANGS, type Lang } from "@/lib/dictionary";
 
@@ -25,31 +25,26 @@ export function Nav() {
   const onCommands = pathname === site.commandsHref;
 
   return (
-    <nav className="sticky top-0 z-10 border-b border-border-soft bg-canvas/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1200px] items-center gap-3 px-[clamp(20px,4vw,40px)] py-[14px] sm:gap-6">
-        <Link
-          href="/"
-          className="flex shrink-0 items-center gap-[10px] text-[17px] font-medium !text-ink hover:!text-ink"
-        >
+    <nav className="crl-topbar">
+      {/* 휴대폰에서는 간격을 좁혀 한 줄에 들어가게 한다 */}
+      <div className="crl-topbar__inner gap-3 sm:gap-6">
+        <Link href="/" className="crl-brand shrink-0">
           <img
             src="/carolbot-avatar.png"
             alt="캐롤봇"
             width={30}
             height={30}
-            className="h-[30px] w-[30px] rounded-full bg-white object-cover shadow-[0_0_0_1px_#2e2e33]"
+            className="crl-brand__mark"
           />
           <span className="hidden sm:inline">캐롤봇</span>
         </Link>
 
-        <span className="flex-1" />
+        <span className="crl-topbar__spacer" />
 
         <Link
           href={site.commandsHref}
           aria-current={onCommands ? "page" : undefined}
-          className={
-            "shrink-0 whitespace-nowrap text-[15px] " +
-            (onCommands ? "font-medium !text-accent-soft" : "!text-muted hover:!text-ink")
-          }
+          className="crl-topbar__link shrink-0"
         >
           {t.navCommands}
         </Link>
@@ -63,7 +58,7 @@ export function Nav() {
               aria-pressed={lang === l}
               onClick={() => setLang(l)}
               className={
-                "flex cursor-pointer items-center justify-center rounded-lg border-none px-[7px] py-[6px] transition " +
+                "flex cursor-pointer items-center justify-center rounded-small border-none px-[7px] py-[6px] transition " +
                 (lang === l
                   ? "bg-surface-2"
                   : "bg-transparent grayscale-[0.6] opacity-65 hover:opacity-90")
@@ -85,7 +80,10 @@ export function Nav() {
 
         <a
           href={site.inviteUrl}
-          className={`${primaryCta} shrink-0 whitespace-nowrap px-3 py-[7px] text-[14px] !text-accent-ink sm:px-[18px] sm:py-[9px] sm:text-[15px]`}
+          className={buttonClassName(
+            { size: "sm" },
+            "shrink-0 px-3 sm:px-[18px] sm:py-[9px] sm:text-[15px]",
+          )}
         >
           <span className="sm:hidden">{t.navInvite}</span>
           <span className="hidden sm:inline">{t.cta1}</span>

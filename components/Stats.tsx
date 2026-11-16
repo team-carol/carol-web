@@ -15,15 +15,15 @@ export function Stats({ stats }: { stats: SiteStats }) {
   return (
     <section
       aria-label="stats"
-      className="mx-auto max-w-[880px] px-[clamp(20px,4vw,40px)] py-[clamp(56px,7vw,88px)]"
+      className="mx-auto max-w-narrow px-gutter py-[clamp(56px,7vw,88px)]"
     >
-      <div className="grid gap-8 text-center [grid-template-columns:repeat(auto-fit,minmax(160px,1fr))]">
+      {/* crl-stat-grid 는 auto-fill 이라 3개가 왼쪽으로 몰린다. 칸은 직접 나눈다. */}
+      <div className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(160px,1fr))]">
         {items.map((item) => (
-          <div key={item.label}>
-            <p className="m-0 text-[clamp(34px,4vw,46px)] font-medium leading-[1.1] text-accent-soft">
-              {item.value}
-            </p>
-            <p className="mt-[10px] text-sm text-dim">{item.label}</p>
+          // --hero: 큰 코랄 숫자가 위, 라벨이 아래 (DOM 은 라벨 → 수치 순)
+          <div key={item.label} className="crl-stat crl-stat--hero">
+            <p className="crl-stat__label">{item.label}</p>
+            <p className="crl-stat__value">{item.value}</p>
           </div>
         ))}
       </div>
