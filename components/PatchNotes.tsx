@@ -1,7 +1,7 @@
 "use client";
 
+import { buttonClassName } from "@team-carol/design-system";
 import { useLanguage } from "./LanguageProvider";
-import { secondaryCta } from "./cta";
 import { site } from "@/lib/config";
 import type { Tweet } from "@/lib/tweets";
 
@@ -17,7 +17,7 @@ function TweetGallery({ images }: { images: string[] }) {
         src={imgs[0]}
         alt=""
         loading="lazy"
-        className="max-h-[300px] w-full rounded-xl border border-border-soft object-cover"
+        className="max-h-[300px] w-full rounded-xl border border-border object-cover"
       />
     );
   }
@@ -26,7 +26,7 @@ function TweetGallery({ images }: { images: string[] }) {
 
   return (
     <div
-      className={`grid aspect-[16/9] grid-cols-2 ${rows} gap-[2px] overflow-hidden rounded-xl border border-border-soft`}
+      className={`grid aspect-[16/9] grid-cols-2 ${rows} gap-[2px] overflow-hidden rounded-xl border border-border`}
     >
       {imgs.length === 2 && (
         <>
@@ -66,7 +66,7 @@ function TweetGallery({ images }: { images: string[] }) {
 // One patch-note card. Becomes a link to the source tweet when a URL is known.
 function TweetCard({ tweet }: { tweet: Tweet }) {
   const cardClass =
-    "flex flex-col gap-[14px] rounded-2xl border border-border-soft bg-surface p-6 transition-colors";
+    "flex flex-col gap-[14px] rounded-card border border-border bg-surface p-6 transition-colors";
 
   const body = (
     <>
@@ -74,18 +74,18 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
         <img
           src="/carolbot-avatar.png"
           alt=""
-          className="h-7 w-7 rounded-lg bg-white object-cover shadow-[0_0_0_1px_#33333a]"
+          className="h-7 w-7 rounded-small bg-white object-cover shadow-[0_0_0_1px_var(--crl-border)]"
         />
         <span className="text-sm font-bold text-ink">캐롤봇</span>
-        <span className="text-[13px] text-dim">{site.twitterHandle}</span>
+        <span className="text-caption text-dim">{site.twitterHandle}</span>
       </div>
-      <p className="m-0 flex-1 whitespace-pre-line text-[15px] leading-[1.6] text-ink-soft">
+      <p className="flex-1 whitespace-pre-line text-body-sm text-ink-soft">
         {tweet.text}
       </p>
       {tweet.images && tweet.images.length > 0 && (
         <TweetGallery images={tweet.images} />
       )}
-      <p className="m-0 text-[13px] text-dim">{tweet.date} · X</p>
+      <p className="text-caption text-dim">{tweet.date} · X</p>
     </>
   );
 
@@ -98,7 +98,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
       href={tweet.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${cardClass} !text-ink hover:!border-[#f2857f]`}
+      className={`${cardClass} text-ink hover:border-accent-hover`}
     >
       {body}
     </a>
@@ -111,12 +111,12 @@ export function PatchNotes({ tweets }: { tweets: Tweet[] }) {
   return (
     <section
       id="patchnotes"
-      className="mx-auto max-w-[1200px] px-[clamp(20px,4vw,40px)] py-[clamp(64px,8vw,104px)]"
+      className="mx-auto max-w-page px-gutter py-section"
     >
-      <h2 className="m-0 mb-3 text-center text-[clamp(30px,3.6vw,46px)] font-medium leading-[1.2]">
+      <h2 className="crl-heading-1 mb-3 text-center">
         {t.patchTitle}
       </h2>
-      <p className="m-0 mb-10 text-center text-base leading-[1.6] text-muted">
+      <p className="mb-10 text-center text-body text-muted">
         {t.patchSub}
       </p>
       <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(270px,1fr))]">
@@ -129,7 +129,7 @@ export function PatchNotes({ tweets }: { tweets: Tweet[] }) {
           href={site.twitterUrl}
           target="_blank"
           rel="noopener"
-          className={`${secondaryCta} px-5 py-[10px] text-[15px] !text-ink-2`}
+          className={buttonClassName({ variant: "secondary" })}
         >
           {t.patchFollow}
         </a>

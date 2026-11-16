@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { buttonClassName } from "@team-carol/design-system";
 import { useLanguage } from "./LanguageProvider";
-import { primaryCta, secondaryCta } from "./cta";
 import { site } from "@/lib/config";
 
 export function CommandsInstall() {
@@ -10,21 +10,21 @@ export function CommandsInstall() {
 
   return (
     <section className="bg-canvas-alt">
-      <div className="mx-auto max-w-[880px] px-[clamp(20px,4vw,40px)] py-[clamp(56px,7vw,88px)] text-center">
-        <p className="m-0 mb-4 text-xs uppercase tracking-[0.5px] text-accent-soft">
+      <div className="mx-auto max-w-narrow px-gutter py-[clamp(56px,7vw,88px)] text-center">
+        <p className="mb-4 text-xs uppercase tracking-[0.5px] text-accent-soft">
           {t.uiKicker}
         </p>
-        <p className="mx-auto max-w-[52ch] text-base leading-[1.6] text-muted">
+        <p className="mx-auto max-w-[52ch] text-body text-muted">
           {t.commands.uiCopy}
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a
-            href={site.inviteUrl}
-            className={`${primaryCta} px-6 py-3 text-base !text-accent-ink`}
-          >
+          <a href={site.inviteUrl} className={buttonClassName({ size: "lg" })}>
             {t.ctaApp}
           </a>
-          <Link href="/" className={`${secondaryCta} px-6 py-3 text-base !text-ink-2`}>
+          <Link
+            href="/"
+            className={buttonClassName({ variant: "secondary", size: "lg" })}
+          >
             {t.commands.back}
           </Link>
         </div>

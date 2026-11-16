@@ -1,52 +1,38 @@
 @import "tailwindcss";
+/* team carol 디자인 시스템: 색·글꼴·타입 스케일·모서리·레이아웃 토큰 (@theme) */
+@import "@team-carol/design-system/tailwind.css";
+/* crl-* 컴포넌트 클래스. tailwindcss 다음에 와야 preflight 가 버튼 배경을 지우지 않는다. */
+@import "@team-carol/design-system/components.css" layer(components);
 
-@theme {
-  --color-canvas: #1a1a1c;
-  --color-canvas-alt: #211f24;
-  --color-surface: #242427;
-  --color-surface-2: #2e2e33;
-  --color-border-soft: #33333a;
-  --color-border-2: #3a353d;
+/*
+ * 문서 기본값. base 레이어에 두어야 crl-* 컴포넌트(components)와
+ * 유틸리티 클래스(utilities)가 링크 색 등을 덮어쓸 수 있다.
+ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-  --color-ink: #f2edef;
-  --color-ink-2: #e8dfe3;
-  --color-ink-soft: #cfc6ca;
-  --color-muted: #b3a8ad;
-  --color-dim: #8a8087;
-  --color-faint: #6f676c;
+  body {
+    margin: 0;
+    background: var(--crl-canvas);
+    color: var(--crl-ink);
+    font-family: var(--crl-font-sans);
+    text-wrap: pretty;
+  }
 
-  --color-accent: #ff9294;
-  --color-accent-hover: #f2787b;
-  --color-accent-ink: #3a1e1e;
-  --color-accent-soft: #f2b3bf;
+  a {
+    color: var(--crl-ink-soft);
+    text-decoration: none;
+  }
 
-  --font-sans: "Pretendard", "Pretendard Variable", "Noto Sans JP",
-    -apple-system, BlinkMacSystemFont, sans-serif;
-}
+  a:hover {
+    color: var(--crl-accent-soft);
+  }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--color-canvas);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  text-wrap: pretty;
-}
-
-a {
-  color: var(--color-ink-soft);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--color-accent-soft);
-}
-
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid #3898ec;
-  outline-offset: 2px;
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--crl-focus);
+    outline-offset: 2px;
+  }
 }
